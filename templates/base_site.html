@@ -1,6 +1,16 @@
 {% extends "admin/base.html" %}
 {% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} |
-{{ _('herbert admin') }}{% endblock %}
+{{ _('herbret admin') }}{% endblock %}
 {% block branding %}
 <div id="site-name"><a href="{% url 'admin:index' %}">{{ _('herbert
-administration') }}
+administration') }}</a></div>
+
+{%if user.is_anonymous%}
+
+  {% include "admin/color_toggle_theme_toggle.html" %}
+
+{% endif %}  
+
+{%endblock%}
+
+{% block nav-global%}{% endblock%}
